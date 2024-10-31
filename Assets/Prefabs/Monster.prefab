@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2692554435849675286}
-  - component: {fileID: 4297310842636575526}
-  - component: {fileID: 3683981804153363918}
+  - component: {fileID: 1599889564630843344}
+  - component: {fileID: 5220625972527867246}
   m_Layer: 6
   m_Name: Monster Mesh
   m_TagString: Untagged
@@ -26,42 +26,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6550436229436413987}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6582223304396238811}
-  m_LocalEulerAnglesHint: {x: 90, y: -90, z: 90}
---- !u!33 &4297310842636575526
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6550436229436413987}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3683981804153363918
-MeshRenderer:
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1599889564630843344
+SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6550436229436413987}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d9967ddb942ca84cad284bc2603fa43, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +66,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -82,7 +74,38 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f9a7d32b0feca4f4894a7a2e397199fb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.85, y: 2.85}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &5220625972527867246
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6550436229436413987}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1bf946fc46c4b064aadf4e3d8fda8608, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8717474896798883691
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,9 +173,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.16, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.43
 --- !u!50 &2679752230791814901
 Rigidbody2D:
   serializedVersion: 4
@@ -192,7 +215,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9212451c4d544b34e99c48d25e864d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovingRightAnimation:
+  - {fileID: 21300000, guid: b2f0612deb7da3e40bd50b48d2b8c3d2, type: 3}
+  - {fileID: 21300000, guid: dfa51a0348d605745b09a279cc3b752d, type: 3}
+  - {fileID: 21300000, guid: eedc3e34458c9914f97dea4af11238d8, type: 3}
+  MovingLeftAnimation:
+  - {fileID: 21300000, guid: f9a7d32b0feca4f4894a7a2e397199fb, type: 3}
+  - {fileID: 21300000, guid: c0fea97e437d10a4994037d20f4ac90e, type: 3}
+  - {fileID: 21300000, guid: 847aa3181ab24e8419a3c99a4532bba1, type: 3}
   _playerSpeed: 0.2
+  m_AnimationSpeed: 0.02
   _leftRight:
     m_Name: Left Right
     m_Type: 0

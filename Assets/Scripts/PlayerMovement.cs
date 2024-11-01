@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] public float _playerSpeed = 0.5f;
 
-    [SerializeField] private InputAction _leftRight;
+    public InputAction _leftRight;
 
     public InputAction Up, Down;
 
@@ -37,14 +37,12 @@ public class PlayerMovement : MonoBehaviour
         if (_leftRight.ReadValue<float>() > 0)
         {
            transform.Translate(new Vector2(-_playerSpeed, 0));
-
         }
            
             
         if (_leftRight.ReadValue<float>() < 0)
         {
             transform.Translate(new Vector2(_playerSpeed, 0));
-
         }
             
 

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6550436229436413987}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -120,36 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pm: {fileID: 1120237230389942542}
-  TriggerMoveRight:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5220625972527867246}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MoveRight
-          m_BoolArgument: 0
-        m_CallState: 1
-  TriggerMoveLeft:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5220625972527867246}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MoveLeft
-          m_BoolArgument: 0
-        m_CallState: 2
+  anim: {fileID: 5220625972527867246}
 --- !u!1 &8717474896798883691
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,9 +188,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.43
+  m_Radius: 0.35
 --- !u!50 &2679752230791814901
 Rigidbody2D:
   serializedVersion: 4
@@ -235,7 +206,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -259,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9212451c4d544b34e99c48d25e864d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSpeed: 0.2
+  _playerSpeed: 0.05
   _leftRight:
     m_Name: Left Right
     m_Type: 0

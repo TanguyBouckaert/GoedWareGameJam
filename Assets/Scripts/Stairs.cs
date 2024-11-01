@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Staires : MonoBehaviour
+public class Stairs : MonoBehaviour
 {
-    public PlayerMovement Pm;
-
     [SerializeField] private Collider2D _stairColl;
 
+    private PlayerMovement _pm;
     private bool _playerInRange = false;
 
     private void Start()
     {
-        Pm.Up.performed += EnableStaires;
-        Pm.Down.performed += EnableStaires;
+        _pm = GameObject.Find("Monster").GetComponent<PlayerMovement>();
+
+        if (_pm == null)
+            Debug.Log("No playermovement script found!");
+
+        _pm.Up.performed += EnableStaires;
+        _pm.Down.performed += EnableStaires;
     }
 
     private void EnableStaires(UnityEngine.InputSystem.InputAction.CallbackContext obj)

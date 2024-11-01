@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
-    public PlayerMovement Pm;
+    private GameObject _player;
 
-    [SerializeField] private GameObject _player;
+    private PlayerMovement _pm;
 
     private bool _ladderProximity;
 
@@ -14,7 +14,10 @@ public class Ladder : MonoBehaviour
 
     private void Start()
     {
-        Pm.Down.performed += Down_performed;
+        _player = GameObject.Find("Monster");
+        _pm = _player.GetComponent<PlayerMovement>();
+
+        _pm.Down.performed += Down_performed;
     }
 
     private void Down_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

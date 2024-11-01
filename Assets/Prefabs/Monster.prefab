@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9212451c4d544b34e99c48d25e864d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSpeed: 0.05
+  _playerSpeed: 0.09
   _leftRight:
     m_Name: Left Right
     m_Type: 0

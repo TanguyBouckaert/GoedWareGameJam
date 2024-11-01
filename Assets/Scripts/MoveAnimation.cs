@@ -9,8 +9,14 @@ public class MoveAnimation : MonoBehaviour
 
     public Animator anim;
 
+    private PlayerMovement _pm;
     private void Start()
     {
+        _pm = GameObject.Find("Monster").GetComponent<PlayerMovement>();
+
+        if (_pm == null)
+            Debug.Log("No playermovement script was found!");
+
         Pm._leftRight.performed += _leftRight_performed;
     }
 

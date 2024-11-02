@@ -103,7 +103,7 @@ public class Enemy : MonoBehaviour
     {
         _levelManager = FindObjectOfType<NewLevel>();
         standardSpeed = enemySpeed;
-        List<Transform> tempTransforms = _levelManager.GetPositionsInRoom(-_currentRoom);
+        List<Transform> tempTransforms = _levelManager.GetPositionsInRoom(_currentRoom);
         transform1 = tempTransforms[0];
         transform2 = tempTransforms[1];
         maxHealth = health;

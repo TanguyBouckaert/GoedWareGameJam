@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+
         foreach (Enemy go in FindObjectsOfType<Enemy>())
         {
             enemies.Add(go.gameObject);
@@ -105,7 +106,8 @@ public class PlayerMovement : MonoBehaviour
             if (closestEnemy == null) return;
             if(Vector3.Distance(closestEnemy.transform.parent.position,transform.position) < maxDistance)
             {
-                closestEnemy.GetComponent<Enemy>().HurtPeople(5f);
+                Vector3 dir = transform.position - closestEnemy.transform.parent.position;
+                closestEnemy.GetComponent<Enemy>().HurtPeople(5f, Convert.ToInt32(dir.x));
             }
 
             //Vector2 direction = Vector2.zero;

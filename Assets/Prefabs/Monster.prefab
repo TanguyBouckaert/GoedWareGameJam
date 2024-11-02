@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerSpeed: 0.09
+  attackCooldown: 100
   _leftRight:
     m_Name: Left Right
     m_Type: 0
@@ -263,6 +264,23 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Left Right
       m_Flags: 8
+    m_Flags: 0
+  _leftMouse:
+    m_Name: Left Mouse
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 304c527b-bce9-421a-a33e-89a22507ce35
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c16e7826-be23-40a9-9197-07223b62108e
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left Mouse
+      m_Flags: 0
     m_Flags: 0
   Up:
     m_Name: Up
@@ -298,3 +316,5 @@ MonoBehaviour:
       m_Action: Down
       m_Flags: 0
     m_Flags: 0
+  maxDistance: 5
+  _moveAnimation: {fileID: 3645319874411460793}

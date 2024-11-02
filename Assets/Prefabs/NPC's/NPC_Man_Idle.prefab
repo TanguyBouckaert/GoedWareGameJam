@@ -79,7 +79,7 @@ MonoBehaviour:
   shouldMove: 1
   enemySpeed: 0.01
   enemyRunSpeed: 0.05
-  health: 100
+  health: 50
   _currentRoom: 0
 --- !u!61 &6823146417958524098
 BoxCollider2D:

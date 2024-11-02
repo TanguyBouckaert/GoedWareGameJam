@@ -18,15 +18,17 @@ public class GameManager : MonoBehaviour
 
     private int _min, _sec;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _npcs = GameObject.FindGameObjectsWithTag("NPC");
-    }
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+    //    _npcs = GameObject.FindGameObjectsWithTag("NPC");
+    //}
 
     // Update is called once per frame
     void Update()
     {
+        _npcs = GameObject.FindGameObjectsWithTag("NPC");
+
         _timeLimitInSec -= Time.deltaTime;
 
          _min = Mathf.FloorToInt(_timeLimitInSec / 60F);

@@ -103,13 +103,13 @@ public class Enemy : MonoBehaviour
     {
         _levelManager = FindObjectOfType<NewLevel>();
         standardSpeed = enemySpeed;
+        List<Transform> tempTransforms = _levelManager.GetPositionsInRoom(-_currentRoom);
+        transform1 = tempTransforms[0];
+        transform2 = tempTransforms[1];
         maxHealth = health;
         yPos = transform1.position.y;
         transform1.position = new Vector3(transform1.position.x, yPos, transform1.position.z);
         transform2.position = new Vector3(transform2.position.x, yPos, transform2.position.z);
-        List<Transform> tempTransforms = _levelManager.GetPositionsInRoom(-_currentRoom);
-        transform1 = tempTransforms[0];
-        transform2 = tempTransforms[1];
     }
 
 
@@ -122,6 +122,7 @@ public class Enemy : MonoBehaviour
         enemySpeed = enemyRunSpeed;
         if (health <= 0)
         {
+            _levelManager.CancelEnemy();
             Destroy(transform.parent.gameObject);
         }
     }
@@ -135,7 +136,7 @@ public class Enemy : MonoBehaviour
             if (currentSelected == 1)
             {
                 
-                transform.position = Vector3.MoveTowards(transform.position, transform1.position, enemySpeed);
+                transform.parent.position = Vector3.MoveTowards(transform.position, transform1.position, enemySpeed);
                 if (transform.position == transform1.position)
                 {
                     enemySpeed = standardSpeed;
@@ -146,7 +147,7 @@ public class Enemy : MonoBehaviour
             {
                 
                 transform.position = Vector3.MoveTowards(transform.position, transform2.position, enemySpeed);
-                if (transform.position == transform2.position)
+                if (transform.parent.position == transform2.position)
                 {
                     enemySpeed = standardSpeed;
                     currentSelected = 1;

@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
             GameOver();
     }
 
-    void GameWinner()
+    public void GameWinner()
     {
         SceneManager.LoadScene("EndScreen");
     }

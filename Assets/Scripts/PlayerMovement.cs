@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] public float _playerSpeed = 0.5f;
-
+    private int _chosenEnemy = -1;
     [SerializeField]
     private float attackCooldown = 100f;
     private float attackTimer = 0;
@@ -25,7 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private bool _ladder = false;
 
     [SerializeField]
-    private float maxDistance = 5f;
+    private float maxDistance = 1f;
+
+    [SerializeField]
+    private GameManager gameManager;
 
     [SerializeField]
     private MoveAnimation _moveAnimation;
@@ -43,23 +46,34 @@ public class PlayerMovement : MonoBehaviour
 
     private GameObject FindClosestEnemy()
     {
-        int chosenEnemy = -1;
         float distance = 0;
+        Debug.Log(enemies.Count);
+        
         for(int i = 0; i < enemies.Count; i++)
         {
             float tempDistance = Vector3.Distance(transform.position, enemies[i].transform.parent.position);
-            if (chosenEnemy == -1)
+            if (_chosenEnemy == -1)
             {
-                chosenEnemy = i;
+                _chosenEnemy = i;
+                distance = tempDistance;
+            }
+            else if(distance == 0)
+            {
+                _chosenEnemy = i;
                 distance = tempDistance;
             }
             else if (tempDistance < distance)
             {
-                chosenEnemy = i;
+                _chosenEnemy = i;
                 distance = tempDistance;
             }
         }
-        return enemies[chosenEnemy];
+        if (enemies.Count <= 0)
+        {
+            gameManager.GameWinner();
+            return null;
+        }
+        return enemies[_chosenEnemy];
     }
 
     private void OnEnable()
@@ -76,6 +90,11 @@ public class PlayerMovement : MonoBehaviour
         _leftRight.Disable();
         Up.Disable();
         Down.Disable();
+    }
+
+    public void DeleteEnemy()
+    {
+        enemies.RemoveAt(_chosenEnemy);
     }
 
     // Update is called once per frame
@@ -104,10 +123,13 @@ public class PlayerMovement : MonoBehaviour
             attackTimer = 0;
             GameObject closestEnemy = FindClosestEnemy();
             if (closestEnemy == null) return;
-            if(Vector3.Distance(closestEnemy.transform.parent.position,transform.position) < maxDistance)
+            Debug.Log(Vector3.Distance(closestEnemy.transform.parent.position, transform.position));
+            Debug.Log(maxDistance);
+            Debug.Log(Vector3.Distance(closestEnemy.transform.parent.position, transform.position) < maxDistance);
+            if (Vector3.Distance(closestEnemy.transform.parent.position,transform.position) < maxDistance)
             {
                 Vector3 dir = transform.position - closestEnemy.transform.parent.position;
-                closestEnemy.GetComponent<Enemy>().HurtPeople(5f, Convert.ToInt32(dir.x));
+                closestEnemy.GetComponent<Enemy>().HurtPeople(10f, Convert.ToInt32(dir.x));
             }
 
             //Vector2 direction = Vector2.zero;

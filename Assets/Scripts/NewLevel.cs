@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 public class NewLevel : MonoBehaviour
 {
     [SerializeField]
+    private PlayerMovement pm;
+
+    [SerializeField]
     public List<GameObject> levelPositions = new List<GameObject>();
 
     public List<Transform> GetPositionsInRoom(int room)
@@ -16,4 +19,8 @@ public class NewLevel : MonoBehaviour
         return transforms;
     }
 
+    public void CancelEnemy()
+    {
+        pm.DeleteEnemy();
+    }
 }
